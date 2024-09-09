@@ -1,0 +1,36 @@
+version: "3"
+services:
+   redis:
+      image: redis
+      ports:
+        - "6379:6379"
+   server:
+      image: livekit/livekit-server
+      ports:
+        - "7880:7880"
+        - "7881:7881"
+        - "7882:7882/udp"
+      volumes:
+        - ./livekit.yaml:/livekit.yaml
+      command: --config /livekit.yaml --node-ip=192.168.31.47
+      depends_on:
+        - redis
+   server2:
+      image: livekit/livekit-server
+      ports:
+        - "17880:7880"
+        - "17881:7881"
+        - "17882:7882/udp"
+      volumes:
+        - ./livekit.yaml:/livekit.yaml
+      command: --config /livekit.yaml --node-ip=192.168.31.47
+      depends_on:
+        - redis
+   ingress:
+      image: livekit/ingress
+      volumes:
+        - ./ingress.yaml:/ingress.yaml
+      command: --config /ingress.yaml
+      depends_on:
+        - server
+        - redis

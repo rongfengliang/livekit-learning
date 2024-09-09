@@ -1,0 +1,6 @@
+log_level: debug
+redis:
+  address: redis:6379
+api_key: APISQ9nphM6rhbq
+api_secret: gJ3bwaXiLbO9Y8QvtXXgCmi1lkf23HpUHmqdg0HwW7J
+ws_url: ws://server:7880

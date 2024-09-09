@@ -1,0 +1,9 @@
+{
+    "input_type": "URL_INPUT",
+    "name": "Name of the Ingress goes here",
+    "room_name": "my-first-room",
+    "participant_identity": "player",
+    "enable_transcoding": true,
+    "participant_name": "播放者",
+    "url": "http://192.168.31.47:8080/a.mp4"
+}
